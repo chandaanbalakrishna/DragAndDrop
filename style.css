@@ -1,86 +1,133 @@
-  body {
-      background-color: #f8f9fa;
-      font-family: Arial, sans-serif;
-  }
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
 
-  h1 {
-      font-size: 24px;
-      font-weight: bold;
-  }
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
 /* Container for centering content */
-  .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-  }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 /* Card styling */
-  .card {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 600px;
-      margin: 10px;
-  }
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    margin: 10px;
+}
 
-  .card-body {
-      padding: 20px;
-  }
+.card-body {
+    padding: 20px;
+}
+
 /* Styling for the table */
-  .table {
-      width: 100%;
-      background-color: white;
-      border-spacing: 0;
-      border-collapse: collapse;
-  }
-      /* Adding both horizontal and vertical borders */
-  td {
-      width: 100px;
-      height: 100px;
-      text-align: center;
-      vertical-align: middle;
-      padding: 10px;
-      border: 2px solid #ddd;
-  }
+.table {
+    width: 100%;
+    background-color: white;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0 auto;
+    /* Center the table */
+}
+/* Adding both horizontal and vertical borders */
+td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    border: 2px solid #ddd;
+    max-width: 120px;
+    /* Dynamic sizing */
+    max-height: 120px;
+}
+
 /* Styling for draggable boxes inside cells */
-  .box {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: grab;
-      transition: transform 0.2s, opacity 0.2s;
-      margin: 0 auto;
-  }
+.box {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: grab;
+    transition: background-color 0.5s ease, transform 0.2s ease, opacity 0.2s;
+    margin: 0 auto;
+}
 /* Change cursor to grabbing when the box is active */
-  .box:active {
-      cursor: grabbing;
-  }
+.box:active {
+    cursor: grabbing;
+}
 
-  .box.dragging {
-      opacity: 0.5;
-      transform: scale(1.2);
-  }
+.box.dragging {
+    opacity: 0.7;
+    /* Better visibility */
+    transform: scale(1.1) rotate(5deg);
+    /* Enhanced dragging effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Shadow for emphasis */
+}
 
-  .highlight {
-      animation: moveBox 0.5s ease;
-  }
-  
 /* Keyframes for the moveBox animation */
-  @keyframes moveBox {
-      from {
-          transform: translateY(-10px);
-      }
+@keyframes moveBox {
+    from {
+        transform: translateY(-10px);
+    }
 
-      to {
-          transform: translateY(0);
-      }
-  }
+    to {
+        transform: translateY(0);
+    }
+}
 
-  .btn {
-      margin: 5px;
-  }
+.highlight {
+    animation: moveBox 0.5s ease;
+}
+
+/* Highlight the drop target */
+td.drag-over {
+    border: 2px dashed #007bff;
+    background-color: #f1f1f1;
+}
+
+/* Animation for box movement */
+.box.move {
+    animation: moveEffect 0.3s ease;
+}
+
+@keyframes moveEffect {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(10px);
+    }
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+/* Disabled button style */
+.btn:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+}
+
+/* Button margin */
+.btn {
+    margin: 5px;
+}
